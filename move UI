@@ -1,0 +1,10 @@
+Protected Overrides Sub WndProc(ByRef m As Message)
+        'Const WM_NCHITTEST As Integer = 132
+        Const HTCLIENT As Integer = 1
+        Const HTCAPTION As Integer = 2
+        Me.DefWndProc(m)
+        If m.Result.ToInt32 = HTCLIENT Then
+            m.Result = New IntPtr(HTCAPTION)
+            'Form1.wnd
+        End If
+End Sub
